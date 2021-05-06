@@ -7,11 +7,11 @@ metadata:
   labels:
     app: cpu-dev-pod-mutator 
 spec:
+  selector:
+    app: cpu-dev-pod-mutator
   ports:
   - name: webhook
     port: 443
-  selector:
-    app: cpu-dev-pod-mutator
 ---
 apiVersion: apps/v1
 kind: Deployment
