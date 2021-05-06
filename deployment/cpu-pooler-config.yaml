@@ -17,14 +17,4 @@ data:
       default:
         cpus: "0"
     nodeSelector:
-      nodeType: controller
-  poolconfig-dpdk.yaml: |
-    pools: 
-      exclusive-pool:
-        cpus : "2-7"
-      shared-pool:
-        cpus : "1"
-      default:
-        cpus: "0"
-    nodeSelector:
-      nodeType: dpdk
+      name: master-node
