@@ -47,7 +47,7 @@ spec:
           - name: cpu-pooler-config
             mountPath: /etc/cpu-pooler
       nodeSelector:
-         node-role.kubernetes.io/master: ""
+         kubernetes.io/hostname: master-node
       volumes:
       - name: webhook-certs
         secret:
