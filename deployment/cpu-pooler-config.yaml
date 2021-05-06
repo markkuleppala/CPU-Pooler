@@ -17,4 +17,4 @@ data:
       default:
         cpus: "0"
     nodeSelector:
-      name: master-node
+      kubernetes.io/hostname: master-node
