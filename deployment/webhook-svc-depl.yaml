@@ -22,9 +22,9 @@ metadata:
     app: cpu-dev-pod-mutator
 spec:
   replicas: 1
-    selector:
-      matchLabels:
-        app: cpu-dev-pod-mutator
+  selector:
+    matchLabels:
+      app: cpu-dev-pod-mutator
   template:
     metadata:
       name: cpu-dev-pod-mutator
