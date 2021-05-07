@@ -7,7 +7,7 @@ spec:
   - name: cputest-exclusive
     command: [ /thread_busyloop ]
     args: ["-c","$(EXCLUSIVE_CPUS)"]
-    image: busyloop
+    image: hello-docker
     imagePullPolicy: IfNotPresent
     ports:
     - containerPort: 80
