@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: exclusivetestcontainer
-    image: hello-docker
+    image: hello-world
     imagePullPolicy: IfNotPresent
     resources:
       requests:
