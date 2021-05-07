@@ -11,7 +11,7 @@ spec:
     app: cpu-dev-pod-mutator
   ports:
   - name: webhook
-    port: 80
+    port: 443
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,13 +34,24 @@ spec:
       containers:
       - name: cpu-dev-pod-mutator
         image: cpu-device-webhook:latest
+        args:
+          - -tls-cert-file=/etc/webhook/certs/cert.pem
+          - -tls-private-key-file=/etc/webhook/certs/key.pem
+          - -alsologtostderr
+          - -v=4
         imagePullPolicy: IfNotPresent
         volumeMounts:
+          - name: webhook-certs
+            mountPath: /etc/webhook/certs
+            readOnly: true
           - name: cpu-pooler-config
             mountPath: /etc/cpu-pooler
       nodeSelector:
          kubernetes.io/hostname: master-node
       volumes:
+      - name: webhook-certs
+        secret:
+          secretName: cpu-dev-webhook-secret
       - name: cpu-pooler-config
         configMap:
           name: cpu-pooler-configmap
