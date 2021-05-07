@@ -49,6 +49,7 @@ spec:
   - digital signature
   - key encipherment
   - server auth
+  signerName: kubernetes.io/kubelet-serving
 EOF
 
 
